@@ -74,7 +74,7 @@ public class Loop1 {
          * «Месяц …, сумма накоплений равна … рублей».
          */
         int sum = 0;
-        for (int i = 1; i < 12; i++) {
+        for (int i = 1; i <= 12; i++) {
             sum+=29000;
             System.out.println("Месяц "+i+", сумма накоплений равна "+sum+" рублей.");
         }
@@ -89,7 +89,7 @@ public class Loop1 {
         int sum2 = 0;
         for (int i = 1; i < 12; i++) {
             sum2+=29000;
-            sum2-=29000*0.12;
+            sum2-=sum2*0.01;
             System.out.println("Месяц "+i+", сумма накоплений равна "+sum2+" рублей.");
         }
         /**
