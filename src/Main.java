@@ -85,9 +85,9 @@ public class Main {
          * … (в зависимости от возраста дописать нужное)».
          */
         int manAge=2;
-        if(manAge>2&&manAge<6){
+        if(manAge>=2&&manAge<=6){
             System.out.println("Если возраст человека равен "+manAge+", то ему нужно ходить в садик.");
-        } else if (manAge>7&&manAge<17) {
+        } else if (manAge>=7&&manAge<=17) {
             System.out.println("Если возраст человека равен "+manAge+", то ему нужно ходить в школу.");
 
         } else if (manAge>=18&&manAge<=24) {
@@ -138,14 +138,11 @@ public class Main {
         int stand =42;
         int sum=102;
         int input=12;
-        if(input<=102){
-            System.out.println("В вагоне место есть.");
-        }
-        else if(input<=sit){
+        if(input<=sit){
             System.out.println("Есть сидячее место в вагоне.");
         }
-        else if(input>sit){
-            System.out.println("Есть стоячее место в вагоне.");
+        else if(input<=sum){
+            System.out.println("В вагоне есть место.");
         }
         else{
             System.out.println("Вагон забит");
@@ -166,10 +163,10 @@ public class Main {
         int one =1;
         int two =2;
         int three=3;
-        if(one>two&&two>three){
+        if(one>=two&&two>=three){
             System.out.println("Самое большое число: "+one);
         }
-        else if(two>three&&three>one){
+        else if(two>=three&&three>=one){
             System.out.println("Самое большое число: "+two);
 
         }
