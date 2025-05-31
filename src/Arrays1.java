@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Arrays1 {
     public static void main(String[] args) {
         /**
@@ -12,10 +14,11 @@ public class Arrays1 {
          *
          *     .
          */
-        byte[] bytes=new byte[3];
-        bytes[0]=1;
-        bytes[1]=2;
-        bytes[2]=3;
+        int[] bytes=new int[3];
+        int length=bytes.length;
+        for(int i=1;i<=length;i++){
+            bytes[i]=i;
+        }
         /**
          * Массив, в котором можно хранить три дробных числа —
          * 1.57, 7.654, 9.986. Массив сразу заполните значениями.
@@ -23,16 +26,25 @@ public class Arrays1 {
         double[] doubles=new double[3];
         doubles[0]=1.57;
         doubles[1]=7.654;
-        doubles[2]=9.986;
+        doubles[doubles.length-1]=9.986;
         /**
          * Произвольный массив. Тип и количество данных определите сами.
          * Самостоятельно выберите способ создания массива: с помощью ключевого
          * слова или сразу заполненный элементами.
          */
         int[] ints={12,32,44};
-        System.out.println(bytes[0]+", "+bytes[1]+", "+bytes[2]);
-        System.out.println(doubles[0]+", "+doubles[1]+", "+doubles[2]);
-        System.out.println(ints[0]+", "+ints[1]+", "+ints[2]);
+        /**
+         * Задача 2
+         *
+         * Распечатайте на отдельной строчке элементы каждого массива по порядку через запятую.
+         * В конце строки запятую ставить не надо.
+         */
+        System.out.println(Arrays.toString(bytes));
+        System.out.println(Arrays.toString(doubles));
+        for (int i = 0; i < ints.length ; i++) {
+            System.out.println(ints[i]+" ");
+        }
+
         /**
          * Задача 3
          *
