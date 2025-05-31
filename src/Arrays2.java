@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Arrays2 {
     public static void main(String[] args) {
         /**
@@ -36,7 +38,7 @@ public class Arrays2 {
         int max=week[0];
         for(int i:week){
             if(i<min)min=i;
-            if(i<max)max=i;
+            if(i>max)max=i;
         }
         System.out.println("Минимальная сумма трат за неделю составила "+min+" рублей.");
         System.out.println("Максимальная сумма трат за неделю составила "+max+" рублей.");
@@ -87,8 +89,18 @@ public class Arrays2 {
          * чтобы установить правильный порядок.
          */
         char[] reverseFullName={ 'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
-        for (int i = reverseFullName.length-1; i >-1 ; i--) {
-            System.out.print(reverseFullName[i]);
+        int good=0;
+        int bad=reverseFullName.length-1;
+        while(good<bad){
+            char temp=reverseFullName[good];
+            reverseFullName[good]=reverseFullName[bad];
+            reverseFullName[bad]=temp;
+            good++;
+            bad--;
         }
+        for(char i:reverseFullName){
+            System.out.print(i);
+        }
+
     }
 }
