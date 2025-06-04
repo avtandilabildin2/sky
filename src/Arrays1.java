@@ -53,9 +53,21 @@ public class Arrays1 {
          *
          * Если в задаче 2 в консоль у вас вывелся результат:
          */
-        System.out.println(bytes[2]+", "+bytes[1]+", "+bytes[0]);
-        System.out.println(doubles[2]+", "+doubles[1]+", "+doubles[0]);
-        System.out.println(ints[2]+", "+ints[1]+", "+ints[0]);
+
+        for (int i = 0; i < bytes.length; i++) {
+            System.out.print(bytes[i]+" ");
+        }
+        System.out.println();
+
+        for (int i = 0; i < doubles.length; i++) {
+            System.out.print(doubles[i]+" ");
+        }
+        System.out.println();
+
+        for (int i = 0; i < ints.length; i++) {
+            System.out.print(ints[i]+" ");
+        }
+        System.out.println();
         for (int i = 0; i <bytes.length ; i++) {
             if(bytes[i]%2==1){
                 bytes[i]+=1;
