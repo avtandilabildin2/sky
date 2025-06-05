@@ -16,8 +16,8 @@ public class Arrays1 {
          */
         int[] bytes=new int[3];
         int length=bytes.length;
-        for(int i=1;i<=length;i++){
-            bytes[i]=i;
+        for(int i=0;i<length;i++){
+            bytes[i]=i+1;
         }
         /**
          * Массив, в котором можно хранить три дробных числа —
@@ -54,21 +54,30 @@ public class Arrays1 {
          * Если в задаче 2 в консоль у вас вывелся результат:
          */
 
-        for (int i = 0; i < bytes.length; i++) {
+        for (int i = bytes.length-1; i >-1; i--) {
             System.out.print(bytes[i]+" ");
         }
         System.out.println();
 
-        for (int i = 0; i < doubles.length; i++) {
+        for (int i = bytes.length-1; i >-1; i--) {
             System.out.print(doubles[i]+" ");
         }
         System.out.println();
 
-        for (int i = 0; i < ints.length; i++) {
+        for (int i = bytes.length-1; i >-1; i--) {
             System.out.print(ints[i]+" ");
         }
         System.out.println();
-        for (int i = 0; i <bytes.length ; i++) {
+        /**
+         * Задача 4
+         *
+         * Пройдитесь по первому целочисленному массиву и все нечетные числа в нем сделайте четными (нужно прибавить 1).
+         *
+         * Важно: код должен работать с любым целочисленным массивом, поэтому для решения задания используйте циклы.
+         *
+         * Распечатайте результат преобразования в консоль.
+         */
+        for (int i = 0; i < bytes.length; i++) {
             if(bytes[i]%2==1){
                 bytes[i]+=1;
             }
