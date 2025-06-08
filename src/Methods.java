@@ -112,5 +112,22 @@ public class Methods {
      *
      * Ваша задача — доработать код, а именно написать метод, который на вход принимает дистанцию и возвращает итоговое количество дней доставки.
      */
+    public int howManyDays(int deliveryDistance){
+
+        if(deliveryDistance==20){
+            return 1;
+        }
+        else if(deliveryDistance>20&&deliveryDistance<60){
+            return 2;
+
+        }
+        else if(deliveryDistance>60&&deliveryDistance<100){
+            return 3;
+
+        }
+        else{
+            return -1;
+        }
+    }
 
 }
