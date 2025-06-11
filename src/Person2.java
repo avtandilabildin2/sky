@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Person2 {
     public String name;
     public String surname;
@@ -15,6 +17,20 @@ public class Person2 {
     public static void changePerson(Person2 person2){
         person2.name = "Lev";
         person2.surname = "Tolstoy";
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (!(o instanceof Person2 person2)) return false;
+
+        return Objects.equals(name, person2.name) && Objects.equals(surname, person2.surname);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(name);
+        result = 31 * result + Objects.hashCode(surname);
+        return result;
     }
 
     @Override
