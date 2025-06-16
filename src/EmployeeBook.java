@@ -129,7 +129,7 @@ public class EmployeeBook {
     public boolean addEmployee(Employee employee) {
         employees[counter]=employee;
         counter++;
-        if(counter==employees.length-1) {
+        if(counter==employees.length) {
             return false;
         }
         return true;
