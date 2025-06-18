@@ -1,28 +1,28 @@
 import java.util.Objects;
 
 public class Employee {
-    private static int id=0;
+    private int id;
     private String name;
     private String middleName;
     private String surname;
     private int department;
     private int salary;
 
-    public Employee(String name, int department, String surname, String middleName,int salary) {
+    public Employee(String name, int department, String surname, String middleName,int salary,int id) {
         this.name = name;
         this.department = department;
         this.surname = surname;
         this.middleName = middleName;
         this.salary=salary;
-        id++;
+        this.id=id;
     }
 
-    public static int getId() {
+    public  int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        Employee.id = id;
+    public  void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
