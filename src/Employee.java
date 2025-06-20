@@ -8,13 +8,13 @@ public class Employee {
     private int department;
     private int salary;
 
-    public Employee(String name, int department, String surname, String middleName,int salary,int id) {
+    public Employee(String name, int department, String surname, String middleName,int salary) {
         this.name = name;
         this.department = department;
         this.surname = surname;
         this.middleName = middleName;
         this.salary=salary;
-        this.id=id;
+        this.id++;
     }
 
     public  int getId() {

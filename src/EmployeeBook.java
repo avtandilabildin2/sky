@@ -13,38 +13,39 @@ public class EmployeeBook {
     public int printSumOfSalary() {
         int sum=0;
         for (int i = 0; i < employees.length; i++) {
-            sum+=employees[i].getSalary();
+            if (employees[i]!=null) {
+                sum+=employees[i].getSalary();
+            }
         }
         return sum;
     }
     public Employee minimumSalary() {
         Employee temp=null;
+        if(employees[0]!=null) {
+            temp=employees[0];
+        }
         int minimumSalary=employees[0].getSalary();
+        int index=0;
         for (int i = 1; i < employees.length; i++) {
-            if (employees[i].getSalary()<minimumSalary) {
+            if(employees[i]!=null&&employees[i].getSalary()<minimumSalary){
                 minimumSalary=employees[i].getSalary();
+                index = i;
             }
         }
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary()==minimumSalary) {
-                temp=employees[i];
-            }
-        }
+        temp=employees[index];
         return temp;
     }
     public Employee maximumSalary() {
         Employee temp=null;
+        int index=0;
         int maximumSalary=employees[0].getSalary();
         for (int i = 1; i < employees.length; i++) {
-            if (employees[i].getSalary()>maximumSalary) {
+            if (employees[i].getSalary()>maximumSalary&&employees[i]!=null) {
                 maximumSalary=employees[i].getSalary();
+                index = i;
             }
         }
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i].getSalary()==maximumSalary) {
-                temp=employees[i];
-            }
-        }
+        temp=employees[index];
         return temp;
 
 
@@ -152,37 +153,27 @@ public class EmployeeBook {
         return true;
     }
     public void removeEmployee(int id) {
-        Employee[] temp=new Employee[employees.length];
         for (int i = 0; i < employees.length; i++) {
-            if(employees[i].getId()!=id) {
-                temp[i]=employees[i];
+            if(employees[i].getId()==id) {
+                employees[i]=null;
             }
         }
-        employees=temp;
-        counter--;
+
     }
     public Employee getEmployee(int id) {
         Employee temp=null;
         for (int i = 0; i < employees.length; i++) {
-            if(employees[i].getId()==id) {
+            if(employees[i].getId()==id&&employees[i]!=null) {
                 temp=employees[i];
             }
         }
         return temp;
     }
 
-    public Employee[] getEmployees() {
-        return employees;
-    }
 
     public int getCounter() {
         return counter;
     }
-
-    public void setCounter(int counter) {
-        this.counter = counter;
-    }
-
     @Override
     public String toString() {
         return "EmployeeBook{" +
