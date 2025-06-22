@@ -140,12 +140,9 @@ public class EmployeeBook {
         if(counter==employees.length) {
             return false;
         }
-        if(employees[counter]!=null) {
-            employees[counter]=employee;
-            counter++;
-            return true;
-        }
-        return false;
+        employees[counter]=employee;
+        counter++;
+        return true;
     }
     public void removeEmployee(int id) {
         for (int i = 0; i < employees.length; i++) {
