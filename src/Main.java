@@ -32,6 +32,7 @@ public class Main {
         employeeBook.addEmployee(employees[7]);
         employeeBook.addEmployee(employees[8]);
         employeeBook.addEmployee(employees[9]);
+        System.out.println(employeeBook);
     }
 
 }

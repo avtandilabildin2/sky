@@ -10,7 +10,7 @@ public class EmployeeBook {
            }
         }
     }
-    public int printSumOfSalary() {
+    public int getSum() {
         int sum=0;
         for (int i = 0; i < employees.length; i++) {
             if (employees[i]!=null) {
@@ -19,58 +19,50 @@ public class EmployeeBook {
         }
         return sum;
     }
-    public Employee minimumSalary() {
-        Employee temp=null;
-        if(employees[0]!=null) {
-            temp=employees[0];
-        }
-        int minimumSalary=employees[0].getSalary();
-        int index=0;
-        for (int i = 1; i < employees.length; i++) {
-            if(employees[i]!=null&&employees[i].getSalary()<minimumSalary){
-                minimumSalary=employees[i].getSalary();
-                index = i;
+    public Employee getMinimumSalaryEmployee() {
+       Employee minSalaryEmployee=null;
+       for (int i = 0; i < employees.length; i++) {
+           if(minSalaryEmployee  == null || employees[i] != null && employees[i].getSalary() < minSalaryEmployee.getSalary()){
+               minSalaryEmployee   = employees[i];
+           }
+       }
+       return minSalaryEmployee;
+    }
+    public Employee getMaximumSalaryEmployee() {
+        Employee maxSalaryEmployee=null;
+        for (int i = 0; i < employees.length; i++) {
+            if(maxSalaryEmployee  == null || employees[i] != null && employees[i].getSalary() >maxSalaryEmployee.getSalary()){
+                maxSalaryEmployee   = employees[i];
             }
         }
-        temp=employees[index];
-        return temp;
-    }
-    public Employee maximumSalary() {
-        Employee temp=null;
-        int index=0;
-        int maximumSalary=employees[0].getSalary();
-        for (int i = 1; i < employees.length; i++) {
-            if (employees[i].getSalary()>maximumSalary&&employees[i]!=null) {
-                maximumSalary=employees[i].getSalary();
-                index = i;
-            }
-        }
-        temp=employees[index];
-        return temp;
 
+        return maxSalaryEmployee;
 
     }
-    public void averageSalary() {
+    public void getAverageSalary() {
         int sum=0;
         for (int i = 0; i < employees.length; i++) {
-            sum+=employees[i].getSalary();
+
+            if (employees[i]!=null) {
+                sum+=employees[i].getSalary();
+            }
         }
         int averageSalary=sum/employees.length;
         System.out.println("Среднее значение зарплат: "+averageSalary);
     }
-    public void nameMiddleNameSurname() {
+    public void printNameMiddleNameSurname() {
         for (int i = 0; i < employees.length; i++) {
             System.out.println(employees[i].getName()+" "+employees[i].getMiddleName()+" "+employees[i].getSurname());
         }
     }
-    public void percentageSalary(int percentage) {
+    public void printPercentageSalary(int percentage) {
         for (int i = 0; i < employees.length; i++) {
             int percent=employees[i].getSalary()*10/100;
             int result=employees[i].getSalary()+percent;
             employees[i].setSalary(result);
         }
     }
-    public void minSalaryDepartment(int department) {
+    public void getMinSalaryInDepartment(int department) {
 
         int minSalary=employees[0].getSalary();
         for (int i = 1; i < employees.length; i++) {
@@ -82,7 +74,7 @@ public class EmployeeBook {
         }
         System.out.println("Минимальная зарплата в отделе: "+minSalary);
     }
-    public void maxSalaryDepartment(int department) {
+    public void getMaxSalaryInDepartment(int department) {
         int maxSalary=employees[0].getSalary();
         for (int i = 1; i < employees.length; i++) {
             if(employees[i].getDepartment()==department) {
@@ -93,7 +85,7 @@ public class EmployeeBook {
         }
         System.out.println("Максимальная зарплата по отделу: "+maxSalary);
     }
-    public void sumSalaryDepartment(int department) {
+    public void printSumSalaryDepartment(int department) {
         int sumSalary=0;
         for (int i = 0; i < employees.length; i++) {
             if(employees[i].getDepartment()==department) {
@@ -102,7 +94,7 @@ public class EmployeeBook {
         }
         System.out.println("Сумма зарплат: "+sumSalary);
     }
-    public void averageSalaryDepartment( int department) {
+    public void printAverageSalaryInDepartment( int department) {
         int count = 0;
         int sumSalary=0;
         for (int i = 0; i < employees.length; i++) {
@@ -114,7 +106,7 @@ public class EmployeeBook {
         int averageSalary=sumSalary/count;
         System.out.println("Средняя зарплата по отделу: "+averageSalary);
     }
-    public void percentageSalaryDepartment(int department) {
+    public void getPercentageSalaryDepartment(int department) {
         for (int i = 0; i < employees.length; i++) {
             if(employees[i].getDepartment()==department) {
                 int percent=employees[i].getSalary()*10/100;
@@ -130,14 +122,14 @@ public class EmployeeBook {
             }
         }
     }
-    public void lessThan(int salary){
+    public void getMinThan(int salary){
         for (int i = 0; i < employees.length; i++) {
-            if(employees[i].getSalary()<salary) {
+            if(employees[i].getSalary()<salary&&employees[i]!=null) {
                 System.out.println(employees[i].withoutDep());
             }
         }
     }
-    public void moreThan(int salary){
+    public void getMaxSalary(int salary){
         for (int i = 0; i < employees.length; i++) {
             if(employees[i].getSalary()>=salary) {
                 System.out.println(employees[i].withoutDep());
@@ -145,17 +137,21 @@ public class EmployeeBook {
         }
     }
     public boolean addEmployee(Employee employee) {
-        employees[counter]=employee;
-        counter++;
         if(counter==employees.length) {
             return false;
         }
-        return true;
+        if(employees[counter]!=null) {
+            employees[counter]=employee;
+            counter++;
+            return true;
+        }
+        return false;
     }
     public void removeEmployee(int id) {
         for (int i = 0; i < employees.length; i++) {
             if(employees[i].getId()==id) {
                 employees[i]=null;
+                counter--;
             }
         }
 
@@ -163,7 +159,7 @@ public class EmployeeBook {
     public Employee getEmployee(int id) {
         Employee temp=null;
         for (int i = 0; i < employees.length; i++) {
-            if(employees[i].getId()==id&&employees[i]!=null) {
+            if(employees[i]!=null&&employees[i].getId()==id) {
                 temp=employees[i];
             }
         }

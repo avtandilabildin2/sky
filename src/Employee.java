@@ -7,6 +7,7 @@ public class Employee {
     private String surname;
     private int department;
     private int salary;
+    private static int count = 0;
 
     public Employee(String name, int department, String surname, String middleName,int salary) {
         this.name = name;
@@ -14,7 +15,7 @@ public class Employee {
         this.surname = surname;
         this.middleName = middleName;
         this.salary=salary;
-        this.id++;
+        this.id=count++;
     }
 
     public  int getId() {
@@ -89,8 +90,9 @@ public class Employee {
                 ", middleName='" + middleName + '\'' +
                 ", surname='" + surname + '\'' +
                 ", salary=" + salary +'\''+
-                ", department=" + department +
-                '}';
+                ", department=" + department +'\''+
+                '}'+'\n';
+
     }
     public String withoutDep() {
         return id + " " + name + " " + middleName + " " + surname+" "+salary;
